@@ -27,11 +27,11 @@ def get_coupon_dates(quote_date,maturity_date):
     # divide by 180 just to be safe
     temp = pd.date_range(end=maturity_date, periods=np.ceil((maturity_date-quote_date).days/180), freq=pd.DateOffset(months=6))
     # filter out if one date too many
+    
     temp = pd.DataFrame(data=temp[temp > quote_date])
 
     out = temp[0]
     return out
-
 
 def make_figure_number_issues_paying(CFmatrix):
 
